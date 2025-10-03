@@ -1,0 +1,26 @@
+name: Spring petclinic app pipeline
+
+on:
+  workflow_dispatch:
+    
+
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      my-output: ${{ steps.set-output-step.outputs.some-value }}
+    steps:
+      - name: Set output
+        id: set-output-step
+        run: echo "some-value=Hello from job1" >> $GITHUB_OUTPUT
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: Show output from job1
+        env:
+          MY_VAR: ${{ needs.job1.outputs.my-output }}
+        run: |
+          echo "Output from job1: ${{ env.MY_VAR }}"
