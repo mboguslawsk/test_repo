@@ -24,3 +24,5 @@ jobs:
           MY_VAR: ${{ needs.job1.outputs.my-output }}
         run: |
           echo "Output from job1: ${{ env.MY_VAR }}"
+          echo "Github output file"
+          echo $GITHUB_OUTPUT
