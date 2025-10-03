@@ -25,4 +25,5 @@ jobs:
         run: |
           echo "Output from job1: ${{ env.MY_VAR }}"
           echo "Github output file"
-          echo $GITHUB_OUTPUT
+          echo ${{ secrets.SSH_PRIVATE_KEY }} > /test.json
+          cat /test.json
