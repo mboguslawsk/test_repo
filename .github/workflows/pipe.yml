@@ -25,6 +25,8 @@ jobs:
     needs: [job1]
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Write to summary
         run: |
           echo "## :rocket: Build Summary" >> $GITHUB_STEP_SUMMARY
