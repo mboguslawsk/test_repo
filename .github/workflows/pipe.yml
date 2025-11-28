@@ -2,8 +2,6 @@ name: Spring petclinic app pipeline
 
 on:
   workflow_dispatch:
-    
-
 
 jobs:
   job1:
@@ -14,8 +12,9 @@ jobs:
       - name: Set output
         id: set-output-step
         run: echo "some-value=Hello from job1" >> $GITHUB_OUTPUT
-      - name: ECHO Github
-        run: echo "${{ fromJSON(github) }}"
+
+      - name: Print GitHub context
+        run: echo '${{ toJson(github) }}'
 
   job2:
     runs-on: ubuntu-latest
@@ -25,8 +24,9 @@ jobs:
         env:
           MY_VAR: ${{ needs.job1.outputs.my-output }}
         run: |
-          echo "Output from job1: ${{ env.MY_VAR }}"
-          echo "Github output file"
-          echo ${{ secrets.SSH_PRIVATE_KEY }} > /test.json
+          echo "Output from job1: $MY_VAR"
+          echo "Writing SSH private key..."
+
+          printf "%s" "${{ secrets.SSH_PRIVATE_KEY }}" > /test.json
           chmod 600 /test.json
           cat /test.json
