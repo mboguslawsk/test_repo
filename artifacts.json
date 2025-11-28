@@ -1,5 +1,25 @@
 [
   {
+    "id": 4707893920,
+    "node_id": "MDg6QXJ0aWZhY3Q0NzA3ODkzOTIw",
+    "name": "artifact-random",
+    "size_in_bytes": 199,
+    "url": "https://api.github.com/repos/mboguslawsk/test_repo/actions/artifacts/4707893920",
+    "archive_download_url": "https://api.github.com/repos/mboguslawsk/test_repo/actions/artifacts/4707893920/zip",
+    "expired": false,
+    "digest": "sha256:65a97646032be9612016d202d15cdf10f772d0e79f34a09479c4d52a467cab41",
+    "created_at": "2025-11-28T14:51:20Z",
+    "updated_at": "2025-11-28T14:51:20Z",
+    "expires_at": "2026-02-26T14:51:04Z",
+    "workflow_run": {
+      "id": 19767157963,
+      "repository_id": 1069046412,
+      "head_repository_id": 1069046412,
+      "head_branch": "main",
+      "head_sha": "9ea1aedfe90637402e92b1736c24c5e2a58622fd"
+    }
+  },
+  {
     "id": 4707834870,
     "node_id": "MDg6QXJ0aWZhY3Q0NzA3ODM0ODcw",
     "name": "artifact-random",
