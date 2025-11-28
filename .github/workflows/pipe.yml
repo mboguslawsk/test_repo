@@ -44,3 +44,16 @@ jobs:
         with:
           name: prod-chg325124
           path: prod-chg325124.json
+
+      - name: Upload Random file
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-random
+          path: artifact-random.txt
+
+  # job3:
+  #   needs: [job2]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
