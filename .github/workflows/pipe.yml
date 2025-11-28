@@ -64,7 +64,11 @@ jobs:
       
       - name: List artifacts for this run
         run: |
-          gh run artifacts ${{ github.run_id }}
+          curl -L \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/mboguslawsk/test_repo/actions/runs/${{ github.run_id }}/artifacts
 
 
   
