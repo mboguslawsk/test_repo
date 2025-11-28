@@ -57,6 +57,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Current run id
+        run: |
+          echo ${{ github.run_id }}
       
       - name: List artifacts for this run
         run: |
