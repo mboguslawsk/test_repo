@@ -37,28 +37,30 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: beta-CHG123124
-          path: beta-CHG123124.json
+          path: artifacts/beta-CHG123124.json
       
       - name: Upload JSON artifact PROD
         uses: actions/upload-artifact@v4
         with:
           name: prod-CHG325124
-          path: prod-CHG325124.json
+          path: artifacts/prod-CHG325124.json
 
       - name: Upload Random file
         uses: actions/upload-artifact@v4
         with:
           name: artifact-random
-          path: artifact-random.txt
+          path: artifacts/artifact-random.txt
 
-  # job3:
-  #   needs: [job2]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
+  job3:
+    needs: [job2]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       
-  #     - name: List all artifacts 
+      - name: List artifacts for this run
+        run: |
+          gh run artifacts ${{ github.run_id }}
 
 
   

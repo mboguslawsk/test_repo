@@ -1,3 +1,5 @@
 new_release.sh
 artifact_url.sh
 artifacts.json
+*.zip
+*.json
