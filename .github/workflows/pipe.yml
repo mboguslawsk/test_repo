@@ -34,17 +34,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-      - name: Show output from job1
-        env:
-          MY_VAR: ${{ needs.job1.outputs.my-output }}
-        run: |
-          echo "Output from job1: $MY_VAR"
-          echo "Writing SSH private key..."
-
-          printf "%s" "${{ secrets.SSH_PRIVATE_KEY }}" > /test.json
-          chmod 600 /test.json
-          cat /test.json
-
       - name: SHow output from $GITHUB_STEP_SUMMARY
         run: |
           echo "$GITHUB_STEP_SUMMARY"
