@@ -3,5 +3,6 @@ artifact_url.sh
 artifacts.json
 *.zip
 *.json
+release_body.txt
 
 !/artifacts/*json
