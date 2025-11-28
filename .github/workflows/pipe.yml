@@ -16,7 +16,21 @@ jobs:
       - name: Print GitHub context
         run: echo '${{ toJson(github) }}'
 
+      - name: Write to summary
+        run: |
+          echo "## :rocket: Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Status: summary from job1" >> $GITHUB_STEP_SUMMARY
+          echo "- Branch: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
   job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write to summary
+        run: |
+          echo "## :rocket: Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Status: summary from job2" >> $GITHUB_STEP_SUMMARY
+          echo "- Branch: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
+
+  job3:
     runs-on: ubuntu-latest
     needs: job1
     steps:
@@ -30,3 +44,7 @@ jobs:
           printf "%s" "${{ secrets.SSH_PRIVATE_KEY }}" > /test.json
           chmod 600 /test.json
           cat /test.json
+
+      - name: SHow output from $GITHUB_STEP_SUMMARY
+        run: |
+          echo "$GITHUB_STEP_SUMMARY"
