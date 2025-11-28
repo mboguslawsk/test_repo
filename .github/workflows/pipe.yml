@@ -22,6 +22,7 @@ jobs:
           echo "- Status: summary from job1" >> $GITHUB_STEP_SUMMARY
           echo "- Branch: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
   job2:
+    needs: [job1]
     runs-on: ubuntu-latest
     steps:
       - name: Write to summary
@@ -31,13 +32,13 @@ jobs:
           echo "- Branch: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
 
       - name: Upload JSON artifact BETA
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: beta-chg123124
           path: beta-chg123124.json
       
       - name: Upload JSON artifact PROD
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: prod-chg325124
           path: prod-chg325124.json
