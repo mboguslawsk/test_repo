@@ -3,3 +3,5 @@ artifact_url.sh
 artifacts.json
 *.zip
 *.json
+
+!/artifacts/*json
